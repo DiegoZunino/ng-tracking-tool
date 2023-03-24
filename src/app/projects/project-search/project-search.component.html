@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="col">
+        <input type="text" class="form-control" name="filterName" placeholder="Cerca progetto" (input)="search()" #filterName/>
+    </div>
+    <div class="col">
+        <select class="form-select" name="filterPriority" (input)="search()" #filterPriority>
+            <option></option>
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+        </select>
+    </div>
+    <div class="col">
+        <select class="form-select" name="filterDone" (input)="search()" #filterDone>
+            <option></option>
+            <option value="true">Done</option>
+            <option value="false">In progress</option>
+        </select>
+    </div>
+</div>

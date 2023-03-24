@@ -1,0 +1,18 @@
+<div class="row row-cols-2 g-4">
+    <div *ngFor="let project of projects" class="card w-75">
+        <div class="card-body">
+            <h5 class="card-title">
+                <span class="badge bg-secondary float-end">
+                  {{project.code}}
+                </span>
+                {{project.name}}
+            </h5>
+            <h6 class="card-subtitle mb-2 text-muted">
+                <small>{{project.start | date: 'dd/MM/yyyy'}}</small>
+                <small *ngIf="project.end"> - {{project.end | date: 'dd/MM/yyyy'}}</small>
+            </h6>
+            <p class="card-text">{{project.description}}</p>
+            <a class="btn btn-primary btn-sm" (click)="selectProject(project)">Vai al progetto</a>
+        </div>
+    </div>
+</div>

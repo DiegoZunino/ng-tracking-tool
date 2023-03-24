@@ -1,0 +1,41 @@
+<form #projectForm="ngForm" (ngSubmit)="submitProjectForm(projectForm)">
+    <div class="row mb-3">
+        <div class="col-6">
+            <input type="text" class="form-control" name="name" placeholder="Nome" required ngModel #nameField="ngModel"/>
+            <p *ngIf="nameField.invalid && nameField.touched" class="text-danger">
+                <small>Il campo è richiesto</small>
+            </p>
+        </div>
+        <div class="col-6">
+            <select class="form-select" name="priority" required ngModel #priorityField="ngModel">
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+            </select>
+            <p *ngIf="priorityField.invalid && priorityField.touched" class="text-danger">
+                <small>Il campo è richiesto</small>
+            </p>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-12">
+            <textarea class="form-control" name="description" placeholder="Descrizione" required ngModel #descriptionField="ngModel">
+            </textarea>
+            <p *ngIf="descriptionField.invalid && descriptionField.touched" class="text-danger">
+                <small>Il campo è richiesto</small>
+            </p>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-6">
+            <input type="date" class="form-control" name="start" placeholder="Data inizio" required ngModel #startField="ngModel"/>
+        </div>
+        <p *ngIf="startField.invalid && startField.touched" class="text-danger">
+            <small>Il campo è richiesto</small>
+        </p>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="projectForm.invalid">
+        Crea progetto
+    </button>
+</form>

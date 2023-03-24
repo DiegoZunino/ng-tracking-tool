@@ -1,0 +1,21 @@
+<div>
+    <h2>I miei progetti</h2>
+    <hr/>
+    <app-project-search (onSearch)="searchProject($event)"></app-project-search>
+</div>
+
+<hr/>
+
+<app-project-list *ngIf="projects.length > 0; else noProjects" (onSelect)="selectProject($event)" [projects]="projects | filter : 'name' : searchFilters?.name || '' | filter : 'priority' : searchFilters?.priority || '' | filter : 'done' : searchFilters?.done || ''"></app-project-list>
+
+<hr/>
+
+<app-project-detail [project]="selectedProject"></app-project-detail>
+
+<hr/>
+
+<app-project-form (onSubmit)="submitProjectForm($event)"></app-project-form>
+
+<ng-template #noProjects>
+    <p>Non è presente alcun progetto.</p>
+</ng-template>
