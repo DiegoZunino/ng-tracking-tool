@@ -10,27 +10,33 @@ import {Router} from "@angular/router";
   styleUrls: ['./project.component.css'],
   providers: [ProjectService]
 })
-export class ProjectComponent implements OnInit{
-  public selectedProject?: Project;
+export class ProjectComponent implements OnInit {
   public searchFilters!: SearchFilters;
   public projects: Project[] = [];
 
   constructor(private projectService: ProjectService, private router: Router) {}
+
+  private updateProjects() {
+    this.projectService.getAll().subscribe(
+        (projects) => this.projects = projects
+    )
+  }
+
+  ngOnInit(): void {
+      this.updateProjects()
+  }
 
   selectProject(project: Project) {
     this.router.navigateByUrl(`/projects/${project.id}`);
   }
 
   submitProjectForm(project: Project) {
-    this.projects = this.projectService.add(project);
-    console.log(this.projects);
+    this.projectService.add(project).subscribe(
+        () => this.updateProjects()
+    );
   }
 
   searchProject(filters: SearchFilters) {
     this.searchFilters = filters;
-  }
-
-  ngOnInit(): void {
-    this.projects = this.projectService.getAll()
   }
 }

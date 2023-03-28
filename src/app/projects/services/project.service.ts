@@ -1,55 +1,25 @@
 import {Injectable} from "@angular/core";
 import {Project} from "../../models/project.model";
+import {Observable} from "rxjs";
+import {HttpClient} from "@angular/common/http";
+import {environment} from "../../../environments/environment";
 
 @Injectable({
     providedIn: 'root'
 })
 export class ProjectService {
-    private projects: Project[] = [
-        {
-            id: 1,
-            code: 'NHusYJl',
-            name: 'Progetto Alpha',
-            description: 'Lorem ipsum dolor sit amet.',
-            start: new Date(2019, 1, 30),
-            end: new Date(2019, 3, 15),
-            priority: 'medium',
-            done: true,
-            tasks: []
-        },
-        {
-            id: 2,
-            code: 'SJieYKl',
-            name: 'Progetto Beta',
-            description: 'Lorem ipsum dolor sit amet.',
-            start: new Date(2019, 3, 30),
-            end: new Date(2019, 6, 15),
-            priority: 'low',
-            done: true,
-            tasks: []
-        },
-        {
-            id: 3,
-            code: 'POjeGBs',
-            name: 'Progetto Gamma',
-            description: 'Lorem ipsum dolor sit amet.',
-            start: new Date(2019, 8, 15),
-            priority: 'low',
-            done: false,
-            tasks: []
-        },
-    ];
 
-    add(project: Project): Project[] {
-        this.projects = [{...project, id: this.projects.length + 1}, ...this.projects];
-        return this.projects;
+    constructor(private httpClient: HttpClient) {}
+
+    add(project: Project): Observable<Project> {
+        return this.httpClient.post<Project>(`${environment.baseUrl}/projects`, project)
     }
 
-    get(id: number): Project | undefined {
-        return this.projects.find((project) => project.id === id);
+    get(id: number): Observable<Project> {
+        return this.httpClient.get<Project>(`${environment.baseUrl}/projects/${id}`);
     }
 
-    getAll(): Project[] {
-        return this.projects;
+    getAll(): Observable<Project[]> {
+        return this.httpClient.get<Project[]>(`${environment.baseUrl}/projects`);
     }
 }

@@ -5,9 +5,7 @@
 </div>
 
 <hr/>
-
-<app-project-list *ngIf="projects.length > 0; else noProjects" (onSelect)="selectProject($event)" [projects]="projects | filter : 'name' : searchFilters?.name || '' | filter : 'priority' : searchFilters?.priority || '' | filter : 'done' : searchFilters?.done || ''"></app-project-list>
-
+    <app-project-list *ngIf="projects.length > 0; else noProjects" (onSelect)="selectProject($event)" [projects]="projects | filter : 'name' : searchFilters?.name || '' | filter : 'priority' : searchFilters?.priority || '' | filter : 'done' : searchFilters?.done || ''"></app-project-list>
 <hr/>
 
 <app-project-form (onSubmit)="submitProjectForm($event)"></app-project-form>

@@ -1,0 +1,56 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "code": "NHusYJl",
+      "name": "Progetto Alpha",
+      "description": "Lorem ipsum dolor sit amet.",
+      "start": "2019-01-30T00:00:00.000Z",
+      "end": "2019-03-15T00:00:00.000Z",
+      "priority": "medium",
+      "done": true,
+      "tasks": []
+    },
+    {
+      "id": 2,
+      "code": "SJieYKl",
+      "name": "Progetto Beta",
+      "description": "Lorem ipsum dolor sit amet.",
+      "start": "2019-03-30T00:00:00.000Z",
+      "end": "2019-06-15T00:00:00.000Z",
+      "priority": "low",
+      "done": true,
+      "tasks": []
+    },
+    {
+      "id": 3,
+      "code": "POjeGBs",
+      "name": "Progetto Gamma",
+      "description": "Lorem ipsum dolor sit amet.",
+      "start": "2019-08-15T00:00:00.000Z",
+      "priority": "low",
+      "done": false,
+      "tasks": []
+    },
+    {
+      "id": 4,
+      "code": "prf79lp",
+      "done": false,
+      "tasks": [],
+      "name": "Progetto",
+      "priority": "medium",
+      "description": "sss",
+      "start": "2023-03-28"
+    },
+    {
+      "id": 5,
+      "code": "j15yqwa",
+      "done": false,
+      "tasks": [],
+      "name": "Progetto",
+      "priority": "high",
+      "description": "www",
+      "start": "2023-03-29"
+    }
+  ]
+}

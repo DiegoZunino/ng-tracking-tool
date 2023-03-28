@@ -15,6 +15,7 @@ import {ProjectDetailComponent} from './projects/project-detail/project-detail.c
 import {AppRoutingModule} from "./app-routing.module";
 import {HomeComponent} from './home/home.component';
 import {NavbarComponent} from './navbar/navbar.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import {NavbarComponent} from './navbar/navbar.component';
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],
